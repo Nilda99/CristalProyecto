@@ -6,7 +6,7 @@ include 'container.php';
         <?php
         echo "<p> administrador de  sucursal: </p>";
         echo " <p>Administrador que se encarga de gestionar: <br>
-    productos,categoria,usuario,rol,reportes. </p>";
+                productos,categoria,usuario,rol,reportes. </p>";
 
         $datosUsuario = unserialize($_GET["datosUsuario"]);
         echo "Hola Usuario: " . $datosUsuario[3] . "idSucursal:" . $datosUsuario[2] . "idUsuario:" . $datosUsuario[0];
