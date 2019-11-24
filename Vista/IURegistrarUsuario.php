@@ -1,12 +1,10 @@
 <?php
+include('header-admin.php');
+include('container.php');
 require_once("../Modelo/Conexion.php");
-
 require_once("../Modelo/Rol.php");
 $connect = new Conexion();
     $objetoRol = new Rol();
-
-
-    
     $listaRol= $objetoRol->listaRoles();
     $idSucursal=$_REQUEST['idSucursal'];
 //     print_r($listaRol);
@@ -16,20 +14,6 @@ $connect = new Conexion();
 // echo $rol['nombre'];
 // endforeach;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <title>Document</title>
-</head>
-
-<body>
-
-
     <div class="container pt-5">
 
         <div class="card border-info ">
@@ -169,96 +153,5 @@ $connect = new Conexion();
         </div>
     </div>
 
-
-<!--    --><?php
-//
-//
-//require_once("../Modelo/Conexion.php");
-//require_once("../Modelo/Usuario.php");
-//
-//$objUsuario = new Usuario();
-//$listaDeUsuario = $objUsuario->listaDeUsuario();
-////var_dump($listaDeClientes);
-////print_r($listaDeClientes);
-//?>
-<!--    <br>-->
-<!---->
-<!--    <p class="text-info text-center h1">Lista de Usuario Dinamicos</p>-->
-<!--    </div>-->
-<!--    !-- <h1>Lista de cliente Dinamicos</h1> -->-->
-<!--    <p>-->
-<!--        <label style="color:blue;">Sucursal 1 CBBA</label>-->
-<!--        <p>-->
-<!--            <table name="mostrarUsuariosDinamicos" id="mostrarUsuariosDinamicos" class="table table-hover">-->
-<!--                !--Esta parte queda estatico-->-->
-<!--                <thead>-->
-<!--                    <tr>-->
-<!--                        <td>Id Usuario</td>-->
-<!--                        <td>Id Sucursal</td>-->
-<!--                        <td>Id Rol</td>-->
-<!--                        <td>Ci</td>-->
-<!--                        <td>Primer Nombre</td>-->
-<!--                        <td>Segundo Nombre</td>-->
-<!--                        <td>Apellido Paterno</td>-->
-<!--                        <td>Apellido Materno</td>-->
-<!--                        <td>Genero</td>-->
-<!--                        <td>Dirección</td>-->
-<!--                        <td>Fecha Nacimiento</td>-->
-<!--                        <td>Telefono Fijo</td>-->
-<!--                        <td>Celular</td>-->
-<!--                        <td>Usuario</td>-->
-<!--                        <td>Contrasenia</td>-->
-<!--                        <td>Estado</td>-->
-<!--                        <td>Fecha Creacion</td>-->
-<!--                        <td>Fecha Actualizacion</td>-->
-<!--                        <td>Editar</td>-->
-<!--                        <td>Actualizar</td>-->
-<!--                        <td>Eliminar</td>-->
-<!--                    </tr>-->
-<!--                </thead>-->
-<!--               !--Esta parte es donde se va generando cada fila-->-->
-<!--                <tbody>-->
-<!--                    --><?php //
-//            foreach($listaDeUsuario as $regitroUsuario):
-//        ?>
-<!--                    <tr>-->
-<!--                        <td>--><?php //echo $regitroUsuario['idUsuario']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['idSucursal']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['idRol'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['ci']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['primerNombre']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['segundoNombre']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['apellidoPaterno']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['apellidoMaterno']; ?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['genero'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['direccion'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['FechaNacimiento'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['telefonoFijo'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['celular'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['usuario'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['contrasenia'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['activo'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['fechaCreacion'];?><!--</td>-->
-<!--                        <td>--><?php //echo $regitroUsuario['fechaActualizacion'];?><!--</td>-->
-<!---->
-<!--                        <td><a href="">Editar</a></td>-->
-<!--                        <td><a href="">Actualizar</a></td>-->
-<!--                        <td><a href="">Eliminar</a></td>-->
-<!--                    </tr>-->
-<!---->
-<!--                    --><?php //
-//            endforeach
-        ?>
-<!--                </tbody>-->
-<!--                !--Y asi las filas pueden ir creciendo-->-->
-<!--            </table>-->
-<!--            </div>-->
-<!--            </div>-->
-<!---->
-<!--            <script src="../js/jquery-3.4.1.min.js"></script>-->
-<!--            <script src="../js/popper.min.js"></script>-->
-<!--            <script src="../js/bootstrap.js"></script>-->
-<!---->
-<!--</body>-->
-<!---->
-<!--</html>-->
+<?php
+include('footer.php');

@@ -51,6 +51,7 @@ $listaDeUsuario = $objUsuario->listaDeUsuario($_GET['idSucursal']);
                 <!--Esta parte es donde se va generando cada fila-->
                 <tbody>
                 <?php
+//                if (!empty($listaDeUsuario)){
                 foreach ($listaDeUsuario as $regitroUsuario) {
                     ?>
                     <tr>
@@ -74,8 +75,13 @@ $listaDeUsuario = $objUsuario->listaDeUsuario($_GET['idSucursal']);
 
                     <?php
                 }
+//                 }
+//                else {
+//                    echo `<h1>No tiene usuararios registrados</h1>`;
+//                }
                 ?>
                 </tbody>
+            
             </table>
         </div>
     </div>

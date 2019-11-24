@@ -1,3 +1,9 @@
+<?php
+//todo iniciando sessiones
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -59,8 +65,8 @@
         <div id="collapseUser" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h5 class="collapse-header">Administrar Usuarios :</h5>
-              <a class="collapse-item" href="utilities-border.html">Registrar Usuarios</a>
-            <a class="collapse-item" href="./IUListaUsuario.php?idSucursal=<?php session_start(); echo $_SESSION['idSucursal'];?>">Listar Usuarios</a>
+              <a class="collapse-item" href="./IURegistrarUsuario.php?idSucursal=<?php  echo $_SESSION['idSucursal'];?>">Registrar Usuarios</a>
+              <a class="collapse-item" href="./IUListaUsuario.php?idSucursal=<?php echo $_SESSION['idSucursal'];?>">Listar Usuarios</a>
           </div>
         </div>
       </li>
