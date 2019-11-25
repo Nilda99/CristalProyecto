@@ -23,6 +23,7 @@ $listaDeUsuario = $objUsuario->listaDeUsuario($_GET['idSucursal']);
                 <!--Esta parte queda estatico-->
                 <thead>
                 <tr>
+                    <th></th>
                     <!--        <td>Id Usuario</td>-->
                     <!--        <td>Id Sucursal</td>-->
                     <!--        <td>Id Rol</td>-->
@@ -51,37 +52,40 @@ $listaDeUsuario = $objUsuario->listaDeUsuario($_GET['idSucursal']);
                 <!--Esta parte es donde se va generando cada fila-->
                 <tbody>
                 <?php
-//                if (!empty($listaDeUsuario)){
-                foreach ($listaDeUsuario as $regitroUsuario) {
-                    ?>
-                    <tr>
+                if (!empty($listaDeUsuario)){
+                    foreach ($listaDeUsuario as $regitroUsuario) {
+                        ?>
+                        <tr>
+                            <td>
+                                <img src="../assets/img/<?php echo $regitroUsuario['fotografia']; ?>" height="80px">
+                            </td>
 
-                        <td><?php echo $regitroUsuario['NombreCompleto']; ?></td>
-                        <td><?php echo $regitroUsuario['ci']; ?></td>
-                        <td><?php echo $regitroUsuario['genero']; ?></td>
-                        <td><?php echo $regitroUsuario['usuario']; ?></td>
-                        <td><?php echo $regitroUsuario['usuario']; ?></td>
-                        <td><?php if ($regitroUsuario['activo']) { ?>
-                                si
-                            <?php } else { ?>
-                                No <?php
-                            } ?>
-                        </td>
-                        <td><a href="" class="btn btn-outline-warning">Mas inf</a></td>
-                        <td><a class="btn btn-outline-primary" href="">Actualizar</a></td>
-                        <td><a href="" class="btn btn-outline-danger">Eliminar</a></td>
+                            <td><?php echo $regitroUsuario['NombreCompleto']; ?></td>
+                            <td><?php echo $regitroUsuario['ci']; ?></td>
+                            <td><?php echo $regitroUsuario['genero']; ?></td>
+                            <td><?php echo $regitroUsuario['usuario']; ?></td>
+                            <td><?php echo $regitroUsuario['usuario']; ?></td>
+                            <td><?php if ($regitroUsuario['activo']) { ?>
+                                    si
+                                <?php } else { ?>
+                                    No <?php
+                                } ?>
+                            </td>
+                            <td><a href="" class="btn btn-outline-warning">Mas inf</a></td>
+                            <td><a class="btn btn-outline-primary" href="">Actualizar</a></td>
+                            <td><a href="" class="btn btn-outline-danger">Eliminar</a></td>
 
-                    </tr>
+                        </tr>
 
-                    <?php
+                        <?php
+                    }
+                 }
+                else {
+                    echo "<tr><td colspan='9'><h1>No tiene usuararios registrados</h1></td></tr>";
                 }
-//                 }
-//                else {
-//                    echo `<h1>No tiene usuararios registrados</h1>`;
-//                }
                 ?>
                 </tbody>
-            
+
             </table>
         </div>
     </div>

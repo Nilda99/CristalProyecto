@@ -81,7 +81,7 @@ class Usuario
             $sqlListaDeUsuario = "
               SELECT u.idUsuario,u.idSucursal,u.idRol,u.ci,
                    concat_ws(' ',u.apellidoPaterno,u.apellidoMaterno,u.primerNombre,u.segundoNombre)as NombreCompleto,u.ci,u.genero
-                   ,u.usuario,u.activo
+                   ,u.usuario,u.activo,u.fotografia
 
             FROM sucursal s join usuario u on s.idSucursal = u.idSucursal
             join   rol r
@@ -126,15 +126,15 @@ class Usuario
             $listaDeUsuariosDeLaConsulta = $cmd->fetchAll();
 
             return $listaDeUsuariosDeLaConsulta;
-        }//end function
+        }//end functionz
 
  public function registrarUsuario($idSucursal,$idRol,$ci,$primerNombre,$segundoNombre,$apellidoPaterno,
                                   $apellidoMaterno,$genero,$direccion,$fechaNacimiento,$telefonoFijo,$celular,
-                                  $usuario,$contrasenia,$activo)
+                                  $usuario,$contrasenia,$activo,$fotografia)
     {
         $sqlInsertarUsuario = "
-                                INSERT INTO usuario(idSucursal,idRol,ci,primerNombre,segundoNombre,apellidoPaterno,apellidoMaterno,genero,direccion,fechaNacimiento,telefonoFijo,celular,usuario,contrasenia,activo) 
-                                VALUES (:idSucursal,:idRol,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:genero,:direccion,:fechaNacimiento,:telefonoFijo,:celular,:usuario,:contrasenia,:activo);
+                                INSERT INTO usuario(idSucursal,idRol,ci,primerNombre,segundoNombre,apellidoPaterno,apellidoMaterno,genero,direccion,fechaNacimiento,telefonoFijo,celular,usuario,contrasenia,activo,fotografia) 
+                                VALUES (:idSucursal,:idRol,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:genero,:direccion,:fechaNacimiento,:telefonoFijo,:celular,:usuario,:contrasenia,:activo,:fotografia);
                               ";
 
         try{
@@ -154,8 +154,10 @@ class Usuario
                 $cmd->bindParam(':usuario', $usuario);
                 $cmd->bindParam(':contrasenia', $contrasenia);
                 $cmd->bindParam(':activo', $activo);
+                $cmd->bindParam(':fotografia',$fotografia);
                 $cmd->execute();
-              return 1;
+                return $this->conexion->lastInsertId();
+
         }catch(PDOException $e){
             echo 'ERROR: No se logro realizar la nueva inserción - '.$e->getMesage();
             exit();

@@ -23,7 +23,7 @@ if ($existeDatosUsuario == 0) {
 
         } elseif ($existeDatosUsuario['idRol'] == 3) {
             session_start();
-            $_SESSION['idSucursal'] =$existeDatosUsuario[0] ;
+            $_SESSION['idSucursal'] =$existeDatosUsuario[1] ;
             header("Location: ../Vista/dashboard-admin.php?datosUsuario=" . serialize($existeDatosUsuario));
             die();
 
