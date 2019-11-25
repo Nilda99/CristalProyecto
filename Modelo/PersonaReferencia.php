@@ -78,8 +78,8 @@ class PersonaReferencia
                                             $telefono,$imagenCiAmverso,$imagenCiReverso)
     {
         $sqlInsertarCliente = "
-                                INSERT INTO personareferencia(idUsuario, ci, primerNombre,segundoNombre,apellidoPaterno,apellidoMaterno,telefono) 
-                                VALUES (:idUsuario,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:telefono);
+                                INSERT INTO personareferencia(idUsuario, ci, primerNombre,segundoNombre,apellidoPaterno,apellidoMaterno,telefono,imagenCiAmverso,imagenCiReverso) 
+                                VALUES (:idUsuario,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:telefono,:imagenCiAmverso,:imagenCiReverso);
                               ";
 
         try{
